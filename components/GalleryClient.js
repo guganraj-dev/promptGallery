@@ -67,7 +67,7 @@ export default function GalleryClient({ initialPrompts }) {
     <main className="container">
       <Header>
         {status === 'loading' ? (
-          <div></div>
+          <div className="skeleton skeleton-button hide-mobile"></div>
         ) : isAdmin && (
           <button onClick={handleAdd} className="btn btn-primary">
             <Plus size={20} /> New Prompt

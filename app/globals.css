@@ -98,6 +98,10 @@ body {
     height: 42px;
     justify-content: center;
   }
+
+  .hide-mobile {
+    display: none !important;
+  }
 }
 
 .btn {

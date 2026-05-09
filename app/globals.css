@@ -81,13 +81,16 @@ body {
   .subtitle {
     display: none;
   }
+
   .main-header {
     padding: 1rem 0;
     margin-bottom: 1rem;
   }
+
   .header-actions .btn span {
     display: none;
   }
+
   .header-actions .btn {
     padding: 0;
     border-radius: 50%;
@@ -351,6 +354,7 @@ body {
 .user-menu-container {
   position: relative;
 }
+
 .user-profile-btn {
   background: none;
   border: 2px solid var(--border, #333);
@@ -365,19 +369,23 @@ body {
   height: 42px;
   overflow: hidden;
 }
+
 .user-profile-btn:hover {
   border-color: #818cf8;
   transform: scale(1.05);
 }
+
 .user-avatar {
   width: 100%;
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
 }
+
 .user-avatar-placeholder {
   color: var(--text-muted);
 }
+
 .user-dropdown {
   position: absolute;
   top: calc(100% + 10px);
@@ -386,18 +394,28 @@ body {
   border: 1px solid var(--border);
   border-radius: 12px;
   min-width: 200px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   padding: 8px;
   animation: slideIn 0.2s ease-out;
 }
+
 @keyframes slideIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
 .user-info {
   padding: 12px;
 }
+
 .user-name {
   font-weight: 600;
   font-size: 0.95rem;
@@ -407,6 +425,7 @@ body {
   align-items: center;
   gap: 8px;
 }
+
 .admin-badge {
   background: rgba(99, 102, 241, 0.1);
   color: #6366f1;
@@ -417,16 +436,19 @@ body {
   letter-spacing: 0.5px;
   border: 1px solid rgba(99, 102, 241, 0.2);
 }
+
 .user-email {
   font-size: 0.8rem;
   color: var(--text-muted);
   margin: 4px 0 0 0;
 }
+
 .menu-divider {
   height: 1px;
   background: var(--border);
   margin: 8px 0;
 }
+
 .menu-item {
   display: flex;
   align-items: center;
@@ -441,14 +463,17 @@ body {
   transition: all 0.2s;
   font-size: 0.9rem;
 }
+
 .menu-item:hover {
   background: #f1f5f9;
   color: var(--primary);
 }
+
 .menu-item.logout:hover {
   background: #fee2e2;
   color: #ef4444;
 }
+
 .menu-overlay {
   position: fixed;
   top: 0;
@@ -457,6 +482,7 @@ body {
   bottom: 0;
   z-index: 999;
 }
+
 .login-btn {
   display: flex;
   align-items: center;
@@ -471,6 +497,7 @@ body {
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
 }
+
 .login-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);

@@ -11,7 +11,7 @@ export default function Header({ children }) {
           <div className="logo-icon">
             <Sparkles size={20} />
           </div>
-          <div>
+          <div className="logo-text">
             <h1>AI Prompt Gallery</h1>
             <p className="subtitle">Transformations and creations</p>
           </div>
@@ -63,6 +63,32 @@ export default function Header({ children }) {
           display: flex;
           align-items: center;
           gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+          .subtitle {
+            display: none;
+          }
+          .logo-text {
+            display: block;
+          }
+          .logo-icon {
+            display: flex;
+          }
+          .main-header {
+            padding: 1rem 0;
+            margin-bottom: 1rem;
+          }
+          .header-actions :global(.btn span) {
+            display: none;
+          }
+          .header-actions :global(.btn) {
+            padding: 0;
+            border-radius: 50%;
+            width: 42px;
+            height: 42px;
+            justify-content: center;
+          }
         }
       `}</style>
     </header>

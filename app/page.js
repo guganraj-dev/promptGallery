@@ -11,7 +11,7 @@ export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingPrompt, setEditingPrompt] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const isAdmin = session?.user?.role === 'admin';
 
   const fetchPrompts = async (initial = false) => {
@@ -68,7 +68,9 @@ export default function Home() {
   return (
     <main className="container">
       <Header>
-        {isAdmin && (
+        {status === 'loading' ? (
+          <div className="skeleton skeleton-button"></div>
+        ) : isAdmin && (
           <button onClick={handleAdd} className="btn btn-primary">
             <Plus size={20} /> New Prompt
           </button>
@@ -76,8 +78,16 @@ export default function Home() {
       </Header>
 
       {loading ? (
-        <div style={{ textAlign: 'center', padding: '4rem' }}>
-          <p>Loading gallery...</p>
+        <div className="grid">
+          {[...Array(6)].map((_, i) => (
+            <div key={i} className="skeleton-card">
+              <div className="skeleton skeleton-image" style={{ width: '100%', aspectRatio: '4 / 5', marginBottom: '1rem' }}></div>
+              <div className="skeleton" style={{ height: '1.2rem', width: '80%', marginBottom: '1rem' }}></div>
+              <div className="card-footer" style={{ marginTop: 'auto' }}>
+                <div className="skeleton" style={{ height: '0.8rem', width: '40%' }}></div>
+              </div>
+            </div>
+          ))}
         </div>
       ) : displayedPrompts.length > 0 ? (
         <>

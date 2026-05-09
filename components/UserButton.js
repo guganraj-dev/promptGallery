@@ -8,7 +8,7 @@ export default function UserButton() {
   const [isOpen, setIsOpen] = useState(false);
 
   if (status === "loading") {
-    return <div className="user-skeleton"></div>;
+    return <div className="skeleton skeleton-button" style={{ width: '42px', borderRadius: '50%' }}></div>;
   }
 
   if (status === "unauthenticated") {

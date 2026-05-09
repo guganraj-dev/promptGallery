@@ -4,6 +4,7 @@ import { MongoDBAdapter } from "@auth/mongodb-adapter"
 import clientPromise from "./lib/dbClient"
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+  trustHost: true,
   adapter: MongoDBAdapter(clientPromise),
   providers: [
     Google({

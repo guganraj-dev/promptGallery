@@ -14,8 +14,8 @@ export default function Home() {
   const { data: session } = useSession();
   const isAdmin = session?.user?.role === 'admin';
 
-  const fetchPrompts = async () => {
-    setLoading(true);
+  const fetchPrompts = async (initial = false) => {
+    if (!initial) setLoading(true);
     try {
       const res = await fetch('/api/prompts');
       const data = await res.json();
@@ -30,7 +30,8 @@ export default function Home() {
   };
 
   useEffect(() => {
-    fetchPrompts();
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    fetchPrompts(true);
   }, []);
 
   const handleDelete = async (e, id) => {
@@ -140,6 +141,7 @@ export default function Home() {
 
       {isModalOpen && (
         <PromptForm
+          key={editingPrompt?._id || 'new'}
           promptData={editingPrompt}
           onClose={() => setIsModalOpen(false)}
           onSuccess={fetchPrompts}

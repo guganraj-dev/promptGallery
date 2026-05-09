@@ -4,23 +4,12 @@ import { X, Upload } from 'lucide-react';
 
 export default function PromptForm({ promptData, onClose, onSuccess }) {
   const [formData, setFormData] = useState({
-    heading: '',
-    prompt: '',
-    originalImage: '',
-    afterImage: '',
+    heading: promptData?.heading || '',
+    prompt: promptData?.prompt || '',
+    originalImage: promptData?.originalImage || '',
+    afterImage: promptData?.afterImage || '',
   });
   const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    if (promptData) {
-      setFormData({
-        heading: promptData.heading,
-        prompt: promptData.prompt,
-        originalImage: promptData.originalImage || '',
-        afterImage: promptData.afterImage || '',
-      });
-    }
-  }, [promptData]);
 
   const handleImageChange = (e, field) => {
     const file = e.target.files[0];

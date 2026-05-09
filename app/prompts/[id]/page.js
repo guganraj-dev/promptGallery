@@ -93,7 +93,7 @@ export default async function PromptDetail({ params }) {
             wordBreak: 'break-word',
             lineHeight: '1.6'
           }}>
-            "{prompt.prompt}"
+            &quot;{prompt.prompt}&quot;
           </p>
           <CopyButton text={prompt.prompt} />
         </div>

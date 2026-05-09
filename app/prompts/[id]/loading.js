@@ -2,7 +2,7 @@ export default function Loading() {
   return (
     <main className="container">
       <div className="skeleton skeleton-button" style={{ width: '45px', height: '45px', borderRadius: '50%', marginBottom: '2rem' }}></div>
-      
+
       <div style={{ marginBottom: '2rem' }}>
         <div className="skeleton" style={{ height: '4rem', width: '60%', marginBottom: '0.5rem' }}></div>
       </div>

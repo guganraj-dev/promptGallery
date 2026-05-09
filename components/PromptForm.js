@@ -11,14 +11,31 @@ export default function PromptForm({ promptData, onClose, onSuccess }) {
   });
   const [loading, setLoading] = useState(false);
 
-  const handleImageChange = (e, field) => {
+  const handleImageChange = async (e, field) => {
     const file = e.target.files[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setFormData({ ...formData, [field]: reader.result });
-      };
-      reader.readAsDataURL(file);
+      setLoading(true);
+      const data = new FormData();
+      data.append('file', file);
+      data.append('upload_preset', 'my_preset');
+
+      try {
+        const res = await fetch(
+          `https://api.cloudinary.com/v1_1/dfghk8sue/image/upload`,
+          {
+            method: 'POST',
+            body: data,
+          }
+        );
+        const fileData = await res.json();
+        if (fileData.secure_url) {
+          setFormData(prev => ({ ...prev, [field]: fileData.secure_url }));
+        }
+      } catch (error) {
+        console.error('Error uploading to Cloudinary:', error);
+      } finally {
+        setLoading(false);
+      }
     }
   };
 

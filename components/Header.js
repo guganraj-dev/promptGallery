@@ -13,7 +13,7 @@ export default function Header({ children }) {
           </div>
           <div className="logo-text">
             <h1>AI Prompt Gallery</h1>
-            <p className="subtitle">Transformations and creations</p>
+            <p className="subtitle">Transformations And Creations</p>
           </div>
         </div>
       </Link>
